@@ -1,7 +1,11 @@
 import { useEffect, useMemo, useState } from 'react'
 import { BookOpen, BriefcaseBusiness, CheckCircle2, Clock3, Plus, Search, Trash2, Pencil, X, GraduationCap, Sparkles, Target, Code2 } from 'lucide-react'
 
-const API = import.meta.env.VITE_API_URL || 'http://localhost:5000/api'
+
+const API = import.meta.env.VITE_API_URL || (import.meta.env.PROD
+  ? 'https://student-skill-project-tracker-api.onrender.com/api'
+  : 'http://localhost:5000/api')
+
 const demoProjects = [
   { _id: 'demo-1', title: 'Campus Event Portal', category: 'Web Development', status: 'In Progress', skills: ['React', 'CSS', 'REST API'], dueDate: '2026-11-20', description: 'A portal to publish campus events and manage registrations.' },
   { _id: 'demo-2', title: 'Personal Portfolio', category: 'UI/UX', status: 'Completed', skills: ['Figma', 'HTML', 'JavaScript'], dueDate: '2026-10-12', description: 'A portfolio to showcase coursework and projects.' },
